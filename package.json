@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "npx mocha test/lead.test.js --reporter mochawesome --reporter-options reportDir=mochawesome-report,reportFilename=mochawesome.html,open=true"
+    "test": "npx mocha test/lead.test.js --reporter mochawesome --reporter-options reportDir=mochawesome-report,reportFilename=mochawesome.html,open=true",
+    "account": "npx mocha test/account.test.js --reporter mochawesome --reporter-options reportDir=mochawesome-report,reportFilename=mochawesome.html,open=true"
   },
   "keywords": [],
   "author": "",

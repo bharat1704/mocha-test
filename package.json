@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "npx mocha test/lead.test.js --reporter mochawesome --reporter-options reportDir=mochawesome-report,reportFilename=mochawesome.html,open=true",
-    "account": "npx mocha test/account.test.js --reporter mochawesome --reporter-options reportDir=mochawesome-report,reportFilename=mochawesome.html,open=true"
+    "account": "npx mocha test/account.test.js --reporter mochawesome --reporter-options reportDir=mochawesome-report,reportFilename=mochawesome.html,open=true",
+    "record": "npx mocha test/deleterecord.test.js --reporter mochawesome --reporter-options reportDir=mochawesome-report,reportFilename=mochawesome.html,open=true"
+  
   },
   "keywords": [],
   "author": "",

@@ -1,0 +1,180 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-05-13T11:39:22.924Z",
+    "end": "2025-05-13T11:39:53.002Z",
+    "duration": 30078,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7a8390f8-a5e8-4b33-9850-1318496f9a8e",
+      "title": "",
+      "fullFile": "D:\\bharat\\Downloads\\mocha\\test\\deleterecord.test.js",
+      "file": "\\test\\deleterecord.test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9bc243d9-f1ef-4d02-844d-91114cc0a504",
+          "title": "Salesforce Lead Creation Flow",
+          "fullFile": "D:\\bharat\\Downloads\\mocha\\test\\deleterecord.test.js",
+          "file": "\\test\\deleterecord.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Salesforce Lead Creation Flow\"",
+              "fullTitle": "Salesforce Lead Creation Flow \"before all\" hook in \"Salesforce Lead Creation Flow\"",
+              "timedOut": false,
+              "duration": 1396,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const options = new chrome.Options().addArguments('--incognito');\ndriver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();",
+              "err": {},
+              "uuid": "1d9deaa5-563c-41b0-a1c2-3cbdebdfd348",
+              "parentUUID": "9bc243d9-f1ef-4d02-844d-91114cc0a504",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Salesforce Lead Creation Flow\"",
+              "fullTitle": "Salesforce Lead Creation Flow \"after all\" hook in \"Salesforce Lead Creation Flow\"",
+              "timedOut": false,
+              "duration": 0,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "if (driver) {\n  // await driver.quit();\n}",
+              "err": {},
+              "uuid": "3e36a4a8-15a7-47f6-a648-676e11f53c7f",
+              "parentUUID": "9bc243d9-f1ef-4d02-844d-91114cc0a504",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Log in to Salesforce",
+              "fullTitle": "Salesforce Lead Creation Flow Log in to Salesforce",
+              "timedOut": false,
+              "duration": 21417,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get('https://login.salesforce.com/');\nawait driver.findElement(By.id('username')).sendKeys('bharatmali1704993@agentforce.com');\nawait driver.findElement(By.id('password')).sendKeys('Piano384~', Key.ENTER);\nawait driver.wait(until.urlContains('lightning.force.com'), 15000);\nconst url = await driver.getCurrentUrl();\nexpect(url).to.include('lightning.force.com');",
+              "err": {},
+              "uuid": "09e947df-5318-40de-9ec6-e098ffe4d238",
+              "parentUUID": "9bc243d9-f1ef-4d02-844d-91114cc0a504",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Go to Account Tab",
+              "fullTitle": "Salesforce Lead Creation Flow Go to Account Tab",
+              "timedOut": false,
+              "duration": 1293,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"https://orgfarm-4e30357e95-dev-ed.develop.lightning.force.com/lightning/o/Account/list\")\n\nconst accountUrl = await driver.getCurrentUrl();\nexpect(accountUrl).to.include('/lightning/o/Account/');",
+              "err": {},
+              "uuid": "5043a8f3-27fb-41fa-86fc-cfc152d32d5a",
+              "parentUUID": "9bc243d9-f1ef-4d02-844d-91114cc0a504",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Delete the existing Account Record",
+              "fullTitle": "Salesforce Lead Creation Flow Delete the existing Account Record",
+              "timedOut": false,
+              "duration": 5963,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let dropdownIcon = await driver.wait(\n  until.elementLocated(By.css('svg[data-key=\"down\"]')),\n  10000\n);\nawait driver.wait(until.elementIsVisible(dropdownIcon), 5000);\nlet clickableParent = await dropdownIcon.findElement(By.xpath(\"./ancestor::a\"));\n    await clickableParent.click();\n\n   await driver.wait(until.elementLocated(By.xpath(\"//a[@title='Delete']\")),10000).click();\n  \n\n   const confirmDeleteButton = await driver.wait(\n  until.elementLocated(By.xpath(\"//span[text()='Delete']\")),\n  10000\n);\n  await driver.wait(until.elementIsVisible(confirmDeleteButton), 5000).click();\nconst newUrl = await driver.getCurrentUrl();\nexpect(newUrl).to.include('/lightning/o/Account/list?filterName')",
+              "err": {},
+              "uuid": "21abd3a5-b831-4544-bb19-bc49999f7dd5",
+              "parentUUID": "9bc243d9-f1ef-4d02-844d-91114cc0a504",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "09e947df-5318-40de-9ec6-e098ffe4d238",
+            "5043a8f3-27fb-41fa-86fc-cfc152d32d5a",
+            "21abd3a5-b831-4544-bb19-bc49999f7dd5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 28673,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 120000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.2.2"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome.html",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report",
+        "reportFilename": "mochawesome.html",
+        "open": "true"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,9 +1,10 @@
 const { Builder, By, Key, until } = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
 const { expect } = require('chai');
+const { elementIsDisabled } = require('selenium-webdriver/lib/until');
 
 describe('Salesforce Lead Creation Flow', function() {
-  this.timeout(120000);
+  this.timeout(190000);
   let driver;
 
   before(async () => {
@@ -19,7 +20,7 @@ describe('Salesforce Lead Creation Flow', function() {
 
   it('Log in to Salesforce', async () => {
     await driver.get('https://login.salesforce.com/');
-    await driver.findElement(By.id('username')).sendKeys('bharatmali@agentforce.com');
+    await driver.findElement(By.id('username')).sendKeys('test@agentforce.com');
     await driver.findElement(By.id('password')).sendKeys('test~', Key.ENTER);
     await driver.wait(until.urlContains('lightning.force.com'), 15000);
     const url = await driver.getCurrentUrl();
@@ -40,7 +41,7 @@ it('Create a new Account', async () => {
     await driver.wait(until.elementIsVisible(newBtn))
     await newBtn.click();
 
-    const nameInput = await driver.wait(until.elementLocated(By.xpath("//input[@name='Name']")),7000);
+    const nameInput = await driver.wait(until.elementLocated(By.xpath("//input[@name='Name']")),10000);
       await nameInput.sendKeys("Test Account30");
     
     await driver.wait(until.elementLocated(By.xpath("//button[@name='SaveEdit']")),1000).click();

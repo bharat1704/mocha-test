@@ -13,7 +13,7 @@ describe('Salesforce Lead Creation Flow', function() {
 
   after(async () => {
     if (driver) {
-      // await driver.quit();
+       await driver.quit();
     }
   });
 

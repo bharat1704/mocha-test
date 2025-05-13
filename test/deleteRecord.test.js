@@ -57,6 +57,7 @@ let dropdownIcon = await driver.wait(
     );
 
       await driver.wait(until.elementIsVisible(confirmDeleteButton), 5000).click();
+      await driver.sleep(2000); 
 
     const newUrl = await driver.getCurrentUrl();
     expect(newUrl).to.include('/lightning/o/Account/list?filterName')

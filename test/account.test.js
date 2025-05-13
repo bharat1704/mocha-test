@@ -13,14 +13,14 @@ describe('Salesforce Lead Creation Flow', function() {
 
   after(async () => {
     if (driver) {
-      // await driver.quit();
+      await driver.quit();
     }
   });
 
   it('Log in to Salesforce', async () => {
     await driver.get('https://login.salesforce.com/');
-    await driver.findElement(By.id('username')).sendKeys('bharatmalidvv@agentforce.com');
-    await driver.findElement(By.id('password')).sendKeys('Pianovdvv~', Key.ENTER);
+    await driver.findElement(By.id('username')).sendKeys('bharatmali@agentforce.com');
+    await driver.findElement(By.id('password')).sendKeys('test~', Key.ENTER);
     await driver.wait(until.urlContains('lightning.force.com'), 15000);
     const url = await driver.getCurrentUrl();
     expect(url).to.include('lightning.force.com');
@@ -40,13 +40,15 @@ it('Create a new Account', async () => {
     await driver.wait(until.elementIsVisible(newBtn))
     await newBtn.click();
 
-    const nameInput = await driver.wait(until.elementLocated(By.xpath("//input[@name='Name']")),5000);
-      await nameInput.sendKeys("Test Account25");
+    const nameInput = await driver.wait(until.elementLocated(By.xpath("//input[@name='Name']")),7000);
+      await nameInput.sendKeys("Test Account30");
     
     await driver.wait(until.elementLocated(By.xpath("//button[@name='SaveEdit']")),1000).click();
   
     const newUrl = await driver.getCurrentUrl();
-    expect(newUrl).to.include('/view')
+    expect(newUrl).to.include('/lightning/o/Account')
+
+    
   });
 
 
@@ -60,14 +62,17 @@ it('Create a new Account', async () => {
     const input = await driver.wait(until.elementLocated( By.xpath("//input[@placeholder='Search Accounts...']")), 10000);
       
       await driver.executeScript("arguments[0].click();", input);
-      await input.sendKeys("Test Account25");
+      await input.sendKeys("Test Account30");
 
       await driver.sleep(2000);
 
-      const dropdownItem = await driver.wait(until.elementLocated( By.xpath("//lightning-base-combobox-formatted-text[normalize-space()='Test Account25']")), 10000);
+      const dropdownItem = await driver.wait(until.elementLocated( By.xpath("//lightning-base-combobox-formatted-text[normalize-space()='Test Account30']")), 10000);
       await driver.executeScript("arguments[0].click();", dropdownItem);
 
-    
+      const newUrl2 = await driver.getCurrentUrl();
+      expect(newUrl2).to.include('/lightning/o/Contact/new?count=')
+
+      
       });
         
 

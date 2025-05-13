@@ -19,8 +19,8 @@ describe('Salesforce Lead Creation Flow', function() {
 
   it('should log in to Salesforce', async () => {
     await driver.get('https://login.salesforce.com/');
-    await driver.findElement(By.id('username')).sendKeys('bharatmali170dv@agentforce.com');
-    await driver.findElement(By.id('password')).sendKeys('dvdvv', Key.ENTER);
+    await driver.findElement(By.id('username')).sendKeys('bharatmali@agentforce.com');
+    await driver.findElement(By.id('password')).sendKeys('test~', Key.ENTER);
     await driver.wait(until.urlContains('lightning.force.com'), 15000);
     const url = await driver.getCurrentUrl();
     expect(url).to.include('lightning.force.com');

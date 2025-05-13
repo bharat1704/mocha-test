@@ -56,6 +56,8 @@ let dropdownIcon = await driver.wait(
       10000
     );
 
+   // Enter the "Edit" text if there is a need to edit the record instead of delete in the above code
+
       await driver.wait(until.elementIsVisible(confirmDeleteButton), 5000).click();
       await driver.sleep(2000); 
 
